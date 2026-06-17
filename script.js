@@ -161,7 +161,7 @@ const player2Field = document.getElementById("player-2-name-field");
 
 // End-game results modal components.
 const winnerAnnouncementDialog = document.querySelector(".winner-dialog");
-const winnerName = document.querySelector(".winner-name");
+const winnerMessage=document.querySelector(".winner-message");
 const quitButton = document.querySelector(".quit-btn");
 const playAgainButton = document.querySelector(".play-again-btn");
 
@@ -221,11 +221,11 @@ boxes.forEach((elt)=>{
 
         if(GameController.haveWinner()){
             winnerAnnouncementDialog.showModal();
-            winnerName.innerText=currentPlayer.name;
+            winnerMessage.innerHTML=`The Winner is: <br><br><span class="winner-name">${currentPlayer.name}</span>`;
             return; 
         }else if(GameController.isTie()){
             winnerAnnouncementDialog.showModal();
-            winnerName.parentElement.innerHTML="Tie !"
+            winnerMessage.innerHTML="Tie !"
         }
   
     })
